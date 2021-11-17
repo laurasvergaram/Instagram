@@ -2,7 +2,7 @@ import React from "react";
 import {authentication} from "../firebase/firebase"
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-
+import GoogleButton from 'react-google-button';
 
 const LogIn = () => {
 
@@ -13,6 +13,12 @@ const LogIn = () => {
         signInWithPopup(authentication, provider)
         .then((result) => {
           console.log(result);
+          const userEmail= result.user.email;
+
+          localStorage.setItem('email',userEmail);
+
+          console.log("El email es: ",userEmail);
+
         })
         .catch((error) => {
           console.log(error);
@@ -20,13 +26,13 @@ const LogIn = () => {
       }
     
       return( 
-        <div>
-          <button onClick={()=>{
+        <div className="botonGoogle">
+          <GoogleButton onClick={()=>{
             signInWithGoogle()
             history("/home")
           }}>
             Sign In
-          </button>
+          </GoogleButton>
         </div>
       );
     }

@@ -1,9 +1,9 @@
 import './App.css';
 import {Routes, Route} from 'react-router-dom';
-import LogIn from './components/login';
-import Home from './components/home';
 import { useState } from 'react';
 import {authentication} from "./firebase/firebase"
+import LoginLayout from './components/LogIn/LoginLayout/LoginLayout';
+import InstaLayout from './components/Home/InstaLayout/InstaLayout';
 
 function App() {
   const [isUserSignedIn, setUserSignedIn] = useState(true);
@@ -17,7 +17,7 @@ if(isUserSignedIn === true){
     return( 
     <div>
         <Routes>
-          <Route path="/home" element={<Home/>}/>
+          <Route path="/home" element={<InstaLayout/>}/>
         </Routes>
     </div>
   );
@@ -25,9 +25,9 @@ if(isUserSignedIn === true){
 
 else{
     return( 
-    <div className="AAAAAAAAa">
+    <div>
         <Routes>
-          <Route path="/" element={<LogIn/>}/>
+          <Route path="/" element={<LoginLayout/>}/>
         </Routes>
     </div>
   );

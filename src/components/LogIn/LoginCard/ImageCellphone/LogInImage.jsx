@@ -16,11 +16,10 @@ const LogInImage = () => {
 const _stylesLayout = {
     container: {
         backgroundColor: '#FAFAFA',
-        //   justifyContent: 'center',
         margin: 0,
         padding: 0,
         display: 'flex'
-        
+
     },
     phone_frame: {
         position: 'relative',
@@ -33,8 +32,8 @@ const _stylesLayout = {
     image: {
         zIndex: 2,
         position: 'absolute',
-        left:-303,
-        top:99,
+        left: -303,
+        top: 99,
 
     }
 };

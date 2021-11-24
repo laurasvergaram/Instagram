@@ -1,37 +1,37 @@
 import './App.css';
-import {Routes, Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
-import {authentication} from "./firebase/firebase"
+import { authentication } from "./firebase/firebase"
 import LoginLayout from './components/LogIn/LoginLayout/LoginLayout';
 import InstaLayout from './components/Home/InstaLayout/InstaLayout';
 
 function App() {
   const [isUserSignedIn, setUserSignedIn] = useState(true);
-  authentication.onAuthStateChanged((user)=>{
-    if(user){
+  authentication.onAuthStateChanged((user) => {
+    if (user) {
       return setUserSignedIn(true);
     }
     setUserSignedIn(false);
   })
-if(isUserSignedIn === true){
-    return( 
-    <div>
+  if (isUserSignedIn === true) {
+    return (
+      <div>
         <Routes>
-          <Route path="/home" element={<InstaLayout/>}/>
+          <Route path="/home" element={<InstaLayout />} />
         </Routes>
-    </div>
-  );
-}
+      </div>
+    );
+  }
 
-else{
-    return( 
-    <div>
+  else {
+    return (
+      <div>
         <Routes>
-          <Route path="/" element={<LoginLayout/>}/>
+          <Route path="/" element={<LoginLayout />} />
         </Routes>
-    </div>
-  );
-}
+      </div>
+    );
+  }
 
 }
 export default App;

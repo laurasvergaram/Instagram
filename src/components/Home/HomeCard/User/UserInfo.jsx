@@ -2,9 +2,13 @@ import React from 'react';
 
 const hover = (e) => {
     e.target.style.cursor = "pointer";
+    e.target.style.textDecoration='underline';
+
   }
   const noHover = (e) => {
     e.target.style.cursor = "default";
+    e.target.style.textDecoration='none';
+
   }
 
 const UserInfo = () => {
